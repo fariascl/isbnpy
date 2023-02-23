@@ -7,15 +7,13 @@ class ISBNpy:
     def __init__(self, cookie):
         self.cookie = cookie
 
-    def getdata(self, isbn):
+    def get(self, isbn):
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36',
            'Cookie': self.cookie,
            'Referer': f'https://isbnsearch.org/isbn/{isbn}'
             }
         try:
             page = get(f"{BASE_URL}/{isbn}", headers=headers)
-            if page.status_code == 403:
-                return {'msg': 'cookie expired', 'status_code': 403}
             soup = BeautifulSoup(page.content, 'html.parser')
             res = soup.find('div', class_='bookinfo')
             title = res.find('h1').get_text()
@@ -43,4 +41,7 @@ class ISBNpy:
             }
             return _json
         except:
-            return {'msg': 'isbn not found', 'status_code':404}
+            if page.status_code == 200:
+                return {'msg': 'cookie expired', 'status_code': 403}
+            elif page.status_code == 404:
+                return {'msg': 'isbn not found', 'status_code':404}
