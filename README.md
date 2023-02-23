@@ -24,7 +24,7 @@ puede entregar 3 resultados:
 '''
 ```
 ### Tipo de resultados
--Si el resultado que entrega es el (1), quiere decir que la consulta fue realizada con éxito.
--Si el resultado que entrega es el (2), quiere decir que la cookie expiró y para volver habilitarla es necesario recurrir al sitio web [isbnsearch.org](https://isbnsearch.org), realizar una consulta en el campo de búsqueda, verificar que no eres robot y listo.
--Si el resultado que entrega es el (3), quiere decir que el ISBN no existe en la base de datos
+- Si el resultado que entrega es el (1), quiere decir que la consulta fue realizada con éxito.
+- Si el resultado que entrega es el (2), quiere decir que la cookie expiró y para volver habilitarla es necesario recurrir al sitio web [isbnsearch.org](https://isbnsearch.org), realizar una consulta en el campo de búsqueda, verificar que no eres robot y listo.
+- Si el resultado que entrega es el (3), quiere decir que el ISBN no existe en la base de datos
 
